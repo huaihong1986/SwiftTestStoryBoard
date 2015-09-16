@@ -8,8 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UIAlertViewDelegate {
+    @IBOutlet weak var TestLabel: UILabel!
 
+    @IBAction func buttonClick(sender: UIButton) {
+        var alert = UIAlertView()
+        alert.title = "alert"
+        alert.delegate = self
+        alert.addButtonWithTitle("cancel")
+        alert.message = "this is an alert"
+        alert.show()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +29,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+  
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        println("buttonIndex\(buttonIndex)")
+        
+    }
 
 }
 
